@@ -9,13 +9,14 @@
     <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
     <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
 
-        <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.4/jquery.min.js"></script> 
-        <script type="text/javascript"> 
-		$(document).ready(function() {
-		    getUpdates(); 
+	  <script src="http://code.jquery.com/jquery-1.11.0.min.js"></script>
+
+	  <script type="text/javascript">
+		  $(document).ready(function() {
+
+		    getUpdates();
 		    setInterval('getUpdates()',120000);
-		});
-		
+
 		function getUpdates() {
 			$.getJSON('http://api.thingspeak.com/channels/56940/feed/last.json?callback=?', function(data) {
 					if (data.field1) {
@@ -23,16 +24,17 @@
 					    $("#humid").html(data.field2);
 					    $("#press").html(data.field3);
 					    $("#light").html(data.field4);
-					}           
+					}
 			});
 		}
-	
-	</script>
-    </head>
+		  });
+
+	  </script>
 
   </head>
   <body>
     <section class="page-header">
+	    <img src="images/tree-house.jpg" style="float: left;" height="300" />
       <h1 class="project-name">TreeHouse</h1>
       <h2 class="project-tagline">Sua - Ecuador</h2>
     </section>
